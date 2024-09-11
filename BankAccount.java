@@ -3,12 +3,10 @@ public class BankAccount {
     
     private final String accountNumber;
     private MonetaryValue balance;
-    //private static MonetaryValue totalBalance = new MonetaryValue(0);
   
     public BankAccount(String accountNumber, MonetaryValue balance) {
       this.accountNumber = accountNumber;
       this.balance = balance;
-      //totalBalance = new MonetaryValue(totalBalance.plus(balance).toString());
     }
   
     public BankAccount(String accountNumber) {
@@ -19,7 +17,6 @@ public class BankAccount {
     public BankAccount(BankAccount original) {
       this.accountNumber = original.accountNumber;
       this.balance = original.balance;
-      //totalBalance = new MonetaryValue(totalBalance.plus(balance).toString());
     }
   
     public String getAccountNumber() {
@@ -35,7 +32,6 @@ public class BankAccount {
         return false;
       } else {
         balance = balance.plus(amount);
-        //totalBalance = new MonetaryValue(totalBalance.plus(amount).toString());
         return true;
       }
     }
@@ -43,19 +39,10 @@ public class BankAccount {
     public boolean withdraw(MonetaryValue amount) {
       if (withdrawalNotAllowed(amount)) {
         return false;
-    } else {
+      } else {
         balance = balance.minus(amount);
         return true;
-    }
-      // if (amount.isNegative()) {
-      //   return false;
-      // } else if (balance.isLessThan(amount)) {
-      //   return false;
-      // } else {
-      //   balance = balance.minus(amount);
-      //   //totalBalance = new MonetaryValue(totalBalance.minus(amount).toString());
-      //   return true;
-      // }
+      }
     }
   
     protected boolean withdrawalNotAllowed(MonetaryValue amount) {
@@ -66,8 +53,5 @@ public class BankAccount {
       return accountNumber + " " + balance.toString();
     }
     
-    // public static MonetaryValue getTotal() {
-    //     return totalBalance;
-    // }
   }
   
